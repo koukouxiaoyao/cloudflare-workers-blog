@@ -25,6 +25,7 @@
 		<script type='text/javascript' src='https://cdn.jsdelivr.net/gh/wpcom-cn/assets/fonts/icons-2.6.4.js?ver=6.1.2' id='wpcom-icons-js'></script>
 		<link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.3.2/styles/tomorrow-night-bright.min.css">
 		<script src='https://cdn.staticfile.org/highlight.js/10.3.2/highlight.min.js'></script>
+		<link rel="stylesheet" href="http://www.phpgrace.com/statics/grace20200720.css" />
 		{{ &OPT.codeBeforHead }}
 	</head>
 	<body class="archive paged category category-zhishi category-5 paged-2 category-paged-2 lang-cn el-boxed">
@@ -254,8 +255,15 @@ var fifuImageVars = {"fifu_lazy":"1","fifu_woo_lbox_enabled":"1","fifu_woo_zoom"
 					});
 				})(jQuery);
 			</script>
-<script>hljs.initHighlightingOnLoad(); //代码高亮
+<script>//hljs.initHighlightingOnLoad(); //代码高亮
 					</script>
+		
+		<script type="text/javascript" src="http://apps.bdimg.com/libs/prettify/r298/prettify.js"></script>
+<script type="text/javascript">
+$('pre').addClass('prettyprint');
+ 
+prettyPrint();
+</script> 
 		{{ &OPT.codeBeforBody }}
 	</body>
 
