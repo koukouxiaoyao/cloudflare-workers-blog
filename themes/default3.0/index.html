@@ -38,12 +38,18 @@
             <span class="grace-color-green" style="padding:0px; padding-right:12px;">文章</span>
         </div>-->
 
-        <div class="grace-cate" id="grace-cate">
-            <a href="" id="all">全部</a>
-            {{ #widgetCategoryList }}
-            <a href="/category/{{&.}}" >{{&.}}</a>
-            {{ /widgetCategoryList }}
-        </div>
+<!--        <div class="grace-cate" id="grace-cate">-->
+<!--            <a href="" id="all">全部</a>-->
+<!--            {{ #widgetCategoryList }}-->
+<!--            <a href="/category/{{&.}}" >{{&.}}</a>-->
+<!--            {{ /widgetCategoryList }}-->
+<!--        </div>-->
+        <a href="" id="all">全部</a>
+        <a href="/category/文章" >文章</a>
+        <a href="/category/分享" >分享</a>
+        <a href="/category/phpgrace框架" >phpgrace框架</a>
+        <a href="/category/资源" >资源</a>
+
         {{ #articleList.length }}
         <div class="grace-media-list">
             <ul>
@@ -109,13 +115,15 @@
     //js 当前URL对当前栏目高亮突出显示
     var myNav = document.getElementById("grace-cate").getElementsByTagName("a");
     for(var i=0;i<myNav.length;i++){
-       /* var links = myNav[i].getAttribute("href");*/
+        var links = myNav[i].getAttribute("href"); 
         var myURL = decodeURI(document.location.href);
-        var value = myNav[i].innerText ; 
-        if(myURL.indexOf("value") != -1){
+        var value = myNav[i].innerText ;
+        if(myURL.indexOf(value) != -1){
             myNav[i].className="grace-current";
             console.log("匹配的值："+value);
-        }
+        }else{
+            document.getElementById("all").className = "grace-current";
+        } 
     }
 </script>
 </body>
