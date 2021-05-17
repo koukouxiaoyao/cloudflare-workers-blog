@@ -108,15 +108,15 @@
     var myNav = document.getElementById("grace-cate").getElementsByTagName("a");
     for(var i=0;i<myNav.length;i++){
         var links = myNav[i].getAttribute("href");
-        var myURL = decodeURI(document.location.href);
-        if(links.length > 2){
-            if(myURL.indexOf("category") != -1){
-                /*不是首页*/
+        var myURL = decodeURI(document.location.href); 
+        if(myURL.indexOf("category") != -1){
+            /*不是首页*/
+            if(myURL.indexOf(links)!=-1){
                 myNav[i].className="grace-current";
-            }else{
-                /*首页*/
-                document.getElementById("all").className ="grace-current";
             }
+        } else{
+            /*首页*/
+            document.getElementById("all").className ="grace-current";
         }
     }
 </script>
