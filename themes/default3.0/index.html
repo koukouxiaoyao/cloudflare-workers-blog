@@ -37,8 +37,8 @@
         <!--<div class="grace-line-title" style="text-align:left; margin-top:0px;">
             <span class="grace-color-green" style="padding:0px; padding-right:12px;">文章</span>
         </div>-->
-        <div class="grace-cate" id="grace-cate">
-            <a href="/" id="all">全部</a>
+        <a href="/" id="all">全部</a>
+        <div class="grace-cate" id="grace-cate"> 
             {{ #widgetCategoryList }}
             <a href="/category/{{&.}}" id="/category/{{&.}}">{{&.}}</a>
             {{ /widgetCategoryList }}
@@ -108,7 +108,7 @@
     var myNav = document.getElementById("grace-cate").getElementsByTagName("a");
     for(var i=0;i<myNav.length;i++){
         var links = myNav[i].getAttribute("href");
-        var myURL = decodeURI(document.location.href); 
+        var myURL = decodeURI(document.location.href);
         if(myURL.indexOf("category") != -1){
             /*不是首页*/
             if(myURL.indexOf(links)!=-1){
