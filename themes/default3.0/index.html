@@ -112,7 +112,8 @@
     console.log(myNav.length);
     for(var i=0;i<myNav.length;i++){
         var links = myNav[i].getAttribute("href");
-        var myURL = document.location.href;
+        var myURL = decodeURI(document.location.href);
+        
         console.log("获取的当前分类:"+links);
         console.log("获取的网址:"+ myURL);
 
