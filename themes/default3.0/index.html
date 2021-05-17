@@ -16,7 +16,7 @@
 <div class="grace-header">
     <div class="grace-main">
         <div class="grace-logo">
-            <a href="/"><img src="https://cdn.jsdelivr.net/gh/koukouxiaoyao/cloudflare-workers-blog@master/themes/default3.0/files/logo.png" /></a>
+            <a href="/" title="{{ &title }}"><img src="https://cdn.jsdelivr.net/gh/koukouxiaoyao/cloudflare-workers-blog@master/themes/default3.0/files/logo.png" /></a>
         </div>
         <ul class="grace-nav" id="grace-nav">
             {{ #widgetMenuList }}
@@ -37,10 +37,10 @@
         <!--<div class="grace-line-title" style="text-align:left; margin-top:0px;">
             <span class="grace-color-green" style="padding:0px; padding-right:12px;">文章</span>
         </div>-->
-        <div class="grace-cate">
-            <a href="/" id="cate_13">全部</a>
+        <div class="grace-cate" id="grace-cate">
+            <a href="/" id="all">全部</a>
             {{ #widgetCategoryList }}
-            <a href="/category/{{&.}}" id="cate_14">{{&.}}</a>
+            <a href="/category/{{&.}}" id="{{&.}}">{{&.}}</a>
             {{ /widgetCategoryList }}
         </div>
         {{ #articleList.length }}
@@ -91,7 +91,6 @@
 <div class="grace-footer-line"></div>
 <div class="grace-footer">
      轻快的实力派！&nbsp;&nbsp;
-
     <br />
     &copy; 2008 - 2021 {{ &OPT.copyRight }}&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.beian.miit.gov.cn/" target="_blank">陕ICP备8888888号</a>
 </div>
@@ -103,9 +102,24 @@
     //百度统计代码请加在这里
 </script>
 <script type="text/javascript">
-    $('#nav-news').addClass('grace-current');
-    $('#cate_13').addClass('grace-current');
+   // $('#nav-news').addClass('grace-current');
     $('.grace-media-list li:even').css({'background':'#F7F8F9'});
+</script>
+<script>
+    //分类选择后高亮
+    //js 当前URL对当前栏目高亮突出显示
+    var myNav = document.getElementById("grace-cate").getElementsByTagName("a");
+    console.log(myNav.length);
+    for(var i=0;i<myNav.length;i++){
+        var links = myNav[i].getAttribute("href");
+        var myURL = document.location.href;
+        console.log("获取的当前分类:"+links);
+        console.log("获取的网址:"+ myURL);
+
+        if(myURL.indexOf(links) != -1){
+            myNav[i].parentNode.className="grace-current";
+        }
+    }
 </script>
 </body>
 </html>
