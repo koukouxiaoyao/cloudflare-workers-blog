@@ -112,9 +112,10 @@
        /* var links = myNav[i].getAttribute("href");*/
         var myURL = decodeURI(document.location.href);
         var value = myNav[i].innerText ;
+        console.log(value);
         if(myURL.indexOf("value") != -1){
             myNav[i].className="grace-current";
-        } 
+        }
     }
 </script>
 </body>
