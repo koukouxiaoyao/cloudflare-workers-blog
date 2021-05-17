@@ -113,15 +113,12 @@
     for(var i=0;i<myNav.length;i++){
         var links = myNav[i].getAttribute("href");
         var myURL = decodeURI(document.location.href);
-        var value = myNav[i].innerText ;
         if(links.length >8 ){
             if(myURL.indexOf(links) != -1){
                 myNav[i].className="grace-current";
             }
-        }else{
-            document.getElementById("all").className ="grace-current"；
-        }
-    } 
+        } 
+    }
 </script>
 </body>
 </html>
