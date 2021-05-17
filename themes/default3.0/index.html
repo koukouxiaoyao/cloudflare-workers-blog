@@ -127,14 +127,14 @@
     $("#grace-cate li a:not(:first)").each(function(){
         $this = $(this);
         if($this[0].href==String(window.location)){
-               $this.parent().addClass("grace-current");
+               $this.addClass("grace-current");
            }
          });
     //当前URL对当前栏目高亮突出显示
     $("#grace-cate li a").each(function(){
         $this = $(this);
         if($this[0].href==String(window.location)){
-            $this.parent().addClass("grace-current");
+            $this.addClass("grace-current");
         }
     });
 </script>
