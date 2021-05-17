@@ -42,7 +42,7 @@
             <a href="" id="all">全部</a>
             {{ #widgetCategoryList }}
             <a href="/category/{{&.}}" >{{&.}}</a>
-            {{ /widgetCategoryList }} 
+            {{ /widgetCategoryList }}
         </div>
 
 
@@ -116,9 +116,7 @@
         var value = myNav[i].innerText ;
         if(myURL.indexOf(value) != -1){
             myNav[i].className="grace-current";
-        }else{
-            document.getElementById("all").className = "grace-current";
-        }
+        } 
     }
 </script>
 </body>
