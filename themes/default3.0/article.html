@@ -47,11 +47,45 @@
 
     </div>
     <div class="grace-l grace-mobile-hide" style="float:right !important;">
-        {{ #widgetMenuList }}
-        <div style="padding-top:16px; font-size:0;">
-            <a href="{{ &url }}" target="_blank">{{ &title }}</a>
+        <!-- #primary -->
+        <div id="secondary" class="widget-area" role="complementary">
+            <aside id="recent-posts-2" class="widget widget_recent_entries">
+                <p class="widget-title">近期文章</p>
+                <ul>
+                    {{ #widgetRecentlyList }}
+                    <li><a href="{{ &url }}">{{ &title }}</a></li>
+                    {{ /widgetRecentlyList }}
+                </ul>
+            </aside>
+            <aside id="categories-4" class="widget widget_categories">
+                <p class="widget-title">分类目录</p>
+                <ul>
+                    {{ #widgetCategoryList }}
+                    <li class="cat-item cat-item-5"><a href="/category/{{&.}}">{{&.}}</a></li>
+                    {{ /widgetCategoryList }}
+                </ul>
+            </aside>
+            <aside id="tag_cloud-2" class="widget widget_tag_cloud">
+                <p class="widget-title">标签云</p>
+                <div class="tagcloud">
+
+                    {{ #widgetTagsList }}
+                    <a href="/tags/{{&.}}" class="tag-cloud-link tag-link-18 tag-link-position-3" style="font-size: 8pt;">{{&.}}</a>
+                    {{ /widgetTagsList }}
+
+                </div>
+            </aside>
+            <aside id="meta-2" class="widget widget_meta">
+                <p class="widget-title">链接</p>
+                <ul>
+                    <li><a href="/admin/">管理站点</a></li>
+                    {{ #widgetLinkList }}
+                    <li><a href="{{ &url }}">{{ &title }}</a></li>
+                    {{ /widgetLinkList }}
+                </ul>
+            </aside>
+            {{ &OPT.widgetOther }}
         </div>
-        {{ /widgetMenuList }}
     </div>
 
 
