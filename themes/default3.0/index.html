@@ -48,13 +48,13 @@
             <ul>
                 {{ #articleList }}
                 <li>
-                    <a href="/article/{{&id}}/{{&link}}.html" target="_blank" title="{{ &title }}">
+                    <a href="/article/{{&id}}/{{&link}}.html"   title="{{ &title }}">
                         <div class="img">
                             <img src="{{ &img }}" />
                         </div>
                         <div class="grace-media-list-title">
                             <h1>{{ &title }}</h1>
-                            <p>发布于 : {{ &articleSingle.createDate10 }}	 </p>
+                            <p>发布于 :  {{ &createDate }}	 </p>
                             <p>{{ &contentText }} ...</p>
                         </div>
                     </a>
