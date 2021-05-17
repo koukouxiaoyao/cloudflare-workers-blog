@@ -3,9 +3,9 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>graceCMS 安装、部署说明</title>
-    <meta name="keywords" content="graceCMS 部署说明" />
-    <meta name="description" content="graceCMS 部署说明" />
+    <title>{{ &articleSingle.title }} - {{ &OPT.siteName }}</title>
+    <meta name="keywords" content="{{ &articleSingle.category }},{{ &articleSingle.tags }}" />
+    <meta name="description" content="{{ &OPT.siteDescription }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/koukouxiaoyao/cloudflare-workers-blog@master/themes/default3.0/files/grace.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/koukouxiaoyao/cloudflare-workers-blog@master/themes/default3.0/files/font_674251_5aerw3hrm8jpds4i.css"/>
@@ -39,52 +39,24 @@
 <div class="grace-main grace-margin-top">
     <div class="grace-r" style="float:left !important;">
         <div style="line-height:2em; border-bottom:1px solid #F6F6F6; padding-bottom:12px;">
-            <h1 class="grace-h3 grace-color-green">graceCMS 安装、部署说明</h1>
+            <h1 class="grace-h3 grace-color-green">{{ &articleSingle.title }}</h1>
         </div>
         <div class="grace-content" style="padding:22px 0px;">
-            <p><strong>graceCMS 部署步骤</strong><br/>1、联系客服 QQ 1265928288 购买获取源码包；<br/>2、解压后获取以下文件夹及文件<br/></p><pre class="brush:html;toolbar:false">|_&nbsp;graceCMS&nbsp;//核心代码包
-|_&nbsp;graceCMS.sql&nbsp;//数据库文件</pre><p>3、将 graceCMS 内的全部文件部署到您的网站目录<br/>4、建立数据库（自定义库名称），导入 graceCMS.sql<br/>5、伪静态配置：<br/>apache 开启伪静态即可，nignx配置如下：<br/></p><pre class="brush:html;toolbar:false">server&nbsp;{
-&nbsp;&nbsp;&nbsp;&nbsp;listen&nbsp;80;
-&nbsp;&nbsp;&nbsp;&nbsp;server_name&nbsp;&nbsp;;
-&nbsp;&nbsp;&nbsp;&nbsp;root&nbsp;&nbsp;&nbsp;&quot;D:/webs/www.phpgrace.com&quot;;
-&nbsp;&nbsp;&nbsp;&nbsp;location&nbsp;/admin&nbsp;{
-&nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;&nbsp;index.html&nbsp;index.htm&nbsp;index.php;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!-e&nbsp;$request_filename){
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rewrite&nbsp;^/admin/(.*)$&nbsp;/admin/index.php?pathInfo=$1;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
-&nbsp;&nbsp;&nbsp;&nbsp;}
-&nbsp;&nbsp;&nbsp;&nbsp;location&nbsp;/&nbsp;{
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;&nbsp;index.html&nbsp;index.htm&nbsp;index.php;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!-e&nbsp;$request_filename){
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rewrite&nbsp;^(.*)$&nbsp;./index.php?pathInfo=$1;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
-&nbsp;&nbsp;&nbsp;&nbsp;}
-}</pre><p>&nbsp;6、配置数据库<br/>打开 phpGrace/config.php，正确填写以下配置：<br/></p><pre class="brush:php;toolbar:false">&lt;?php
-return&nbsp;array(
-&nbsp;//数据库配置
-&nbsp;&#39;db&#39;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;array(
-&nbsp;&nbsp;&nbsp;&nbsp;&#39;host&#39;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;&nbsp;&nbsp;&nbsp;&#39;127.0.0.1&#39;,
-&nbsp;&nbsp;&nbsp;&nbsp;&#39;port&#39;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;&nbsp;&nbsp;&nbsp;&#39;3306&#39;,
-&nbsp;&nbsp;&nbsp;&nbsp;&#39;user&#39;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;&nbsp;&nbsp;&nbsp;&#39;root&#39;,
-&nbsp;&nbsp;&nbsp;&nbsp;&#39;pwd&#39;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;&nbsp;&nbsp;&nbsp;&#39;******&#39;,
-&nbsp;&nbsp;&nbsp;&nbsp;&#39;dbname&#39;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;&nbsp;&nbsp;&nbsp;&#39;您创建的数据库名称&#39;,
-&nbsp;&nbsp;&nbsp;&nbsp;&#39;charset&#39;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;&nbsp;&nbsp;&nbsp;&#39;utf8&#39;,
-&nbsp;&nbsp;&nbsp;&nbsp;&#39;pre&#39;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;&nbsp;&nbsp;&nbsp;&#39;grace_&#39;&nbsp;//表前缀
-&nbsp;),</pre><p>&nbsp;7、浏览器访问项目；<br/><br/><strong>重要说明：</strong><br/>在 linux 环境下，请保证网站目录的权限配置正确，以保证 session、缓存、头像等动态增加的文件可以正常写入。如：<br/></p><pre class="brush:php;toolbar:false">chmod&nbsp;-R&nbsp;777&nbsp;/www/您的网站目录;</pre><p><br/></p>		</div>
-
-
+            {{ &articleSingle.contentHtml }}
         </div>
+
+    </div>
     <div class="grace-l grace-mobile-hide" style="float:right !important;">
-        <div style="font-size:0;">
-            <a href="http://www.phpgrace.com" target="_blank">
-                <img src="https://cdn.jsdelivr.net/gh/koukouxiaoyao/cloudflare-workers-blog@master/themes/default3.0/files/right_banner1.jpg" width="100%" />
-            </a>
-        </div>
+        {{ #widgetMenuList }}
         <div style="padding-top:16px; font-size:0;">
-            <a href="http://www.hcoder.net" target="_blank">
-                <img src="https://cdn.jsdelivr.net/gh/koukouxiaoyao/cloudflare-workers-blog@master/themes/default3.0/files/right_banner2.jpg" width="100%" />
-            </a>
-        </div>	</div>
+            <a href="{{ &url }}" target="_blank">{{ &title }}</a>
+        </div>
+        {{ /widgetMenuList }}
+    </div>
+
+
+
+
 </div>
 <div class="grace-footer-line"></div>
 <div class="grace-footer">
