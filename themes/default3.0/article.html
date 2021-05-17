@@ -20,12 +20,9 @@
             <a href="/"><img src="https://cdn.jsdelivr.net/gh/koukouxiaoyao/cloudflare-workers-blog@master/themes/default3.0/files/logo.png" /></a>
         </div>
         <ul class="grace-nav" id="grace-nav">
-            <li><a href="/doc" id="nav-doc">说明</a></li>
-            <li><a href="/news" id="nav-news">文章</a></li>
-            <li><a href="/topics" id="nav-topics">话题</a></li>
-            <li>
-                <a href="/login" id="nav-login">登录</a>
-            </li>
+            {{ #widgetMenuList }}
+            <li><a href="{{ &url }}">{{ &title }}</a></li> 
+            {{ /widgetMenuList
         </ul>
     </div>
     <div class="grace-menu" id="grace-menu"><i class="iconfont icon-caidan"></i></div>
@@ -86,7 +83,7 @@
             </aside>
             {{ &OPT.widgetOther }}
         </div>
-    </div> 
+    </div>
 </div>
 <div class="grace-footer-line"></div>
 <div class="grace-footer">
