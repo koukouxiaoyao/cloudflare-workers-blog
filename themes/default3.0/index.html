@@ -38,17 +38,13 @@
             <span class="grace-color-green" style="padding:0px; padding-right:12px;">文章</span>
         </div>-->
 
-<!--        <div class="grace-cate" id="grace-cate">-->
-<!--            <a href="" id="all">全部</a>-->
-<!--            {{ #widgetCategoryList }}-->
-<!--            <a href="/category/{{&.}}" >{{&.}}</a>-->
-<!--            {{ /widgetCategoryList }}-->
-<!--        </div>-->
-        <a href="" id="all">全部</a>
-        <a href="/category/文章" >文章</a>
-        <a href="/category/分享" >分享</a>
-        <a href="/category/phpgrace框架" >phpgrace框架</a>
-        <a href="/category/资源" >资源</a>
+        <div class="grace-cate" id="grace-cate">
+            <a href="" id="all">全部</a>
+            {{ #widgetCategoryList }}
+            <a href="/category/{{&.}}" >{{&.}}</a>
+            {{ /widgetCategoryList }} 
+        </div>
+
 
         {{ #articleList.length }}
         <div class="grace-media-list">
@@ -118,8 +114,10 @@
         var links = myNav[i].getAttribute("href");
         var myURL = decodeURI(document.location.href);
         var value = myNav[i].innerText ;
-        if(myURL.indexOf(links) != -1){
-            myNav[i].className="grace-current"; 
+        if(myURL.indexOf(value) != -1){
+            myNav[i].className="grace-current";
+        }else{
+            document.getElementById("all").className = "grace-current";
         }
     }
 </script>
