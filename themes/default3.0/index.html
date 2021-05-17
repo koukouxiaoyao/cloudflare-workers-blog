@@ -37,8 +37,9 @@
         <!--<div class="grace-line-title" style="text-align:left; margin-top:0px;">
             <span class="grace-color-green" style="padding:0px; padding-right:12px;">文章</span>
         </div>-->
-        <a href="/" id="all">全部</a>
+
         <div class="grace-cate" id="grace-cate">
+            <a href="#" id="all">全部</a>
             {{ #widgetCategoryList }}
             <a href="/category/{{&.}}" id="/category/{{&.}}">{{&.}}</a>
             {{ /widgetCategoryList }}
@@ -114,7 +115,9 @@
             if(myURL.indexOf(links)!=-1){
                 myNav[i].className="grace-current";
             }
-        } 
+        }else if(myURL.indexOf("#")!=-1){
+            document.getElementById("all").className = "grace-current";
+        }
     }
 </script>
 </body>
