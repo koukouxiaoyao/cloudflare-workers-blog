@@ -119,6 +119,10 @@
         if(myURL.indexOf(links) != -1){
             myNav[i].parentNode.className="grace-current";
         }
+
+        if(myURL == "/"){
+            document.getElementById("all").className ="grace-current";
+        }
     }
 </script>
 </body>
