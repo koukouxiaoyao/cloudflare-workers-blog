@@ -38,7 +38,7 @@
             <span class="grace-color-green" style="padding:0px; padding-right:12px;">文章</span>
         </div>-->
         <div class="grace-cate" id="grace-cate">
-            <a href="/" id="all">全部</a>
+            <a href="index.html" id="all">全部</a>
             {{ #widgetCategoryList }}
             <a href="/category/{{&.}}" id="/category/{{&.}}">{{&.}}</a>
             {{ /widgetCategoryList }}
@@ -109,9 +109,8 @@
     for(var i=0;i<myNav.length;i++){
         var links = myNav[i].getAttribute("href");
         var myURL = decodeURI(document.location.href);
-         console.log("获取当前网址长度："+links.length);
         if(links.length > 2){
-            if(myURL.indexOf(links) != -1){
+            if(myURL.indexOf("category") != -1){
                 /*不是首页*/
                 myNav[i].className="grace-current";
             }else{
