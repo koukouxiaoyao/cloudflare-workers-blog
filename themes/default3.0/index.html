@@ -126,7 +126,7 @@
     $(function () {
         $("#grace-cate li a:not(:first)").each(function(){
             $this = $(this);
-            if($this[0].href==String(window.location)){
+            if($this.href==String(window.location)){
                 $this.addClass("grace-current");
             }
         });
