@@ -98,7 +98,7 @@
 
 </div>
 <div class="grace-footer-line"></div>
-<div class="grace-footer">{{ &OPT.codeBeforBody }}
+<div class="grace-footer"> 
     phpGrace 轻快的实力派！&nbsp;&nbsp;
     官方QQ群 : <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=65109c04a5d0fc6862e36083c8d611f2ec22257236ff1759b9b990c447aa2338">629104246</a>
     <br />
@@ -109,14 +109,17 @@
         var nav = $('#grace-nav');
         if(nav.is(':hidden')){nav.slideDown(100);}else{nav.slideUp(100);}
     });
-    //百度统计代码请加在这里 
-</script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/koukouxiaoyao/cloudflare-workers-blog@master/themes/default3.0/files/prettify.js"></script>
+    //百度统计代码请加在这里
+</script>
+    
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/koukouxiaoyao/cloudflare-workers-blog@master/themes/default3.0/files/prettify.js"></script>
 <script type="text/javascript">
     $('pre').addClass('prettyprint');
     //表格各行变色
     $('table').each(function(){
         $(this).find('tr:even').find('td').css({background:'#F6F7F8'});
     });
+    
     prettyPrint();
     $('#nav-doc').addClass('grace-current');
 </script>
