@@ -53,7 +53,7 @@
                             <img src="{{ &img }}" />
                         </div>
                         <div class="grace-media-list-title">
-                            <h1>{{ &title }}</h1>
+                            <h1 style="font-weight: bold">{{ &title }}</h1>
                             <p>发布于 :  {{ &createDate10 }}	 </p>
                             <p>{{ &contentText }} ...</p>
                         </div>
@@ -64,13 +64,13 @@
         </div>
 
         <div>
-            <div class="grace-pager">
+            <div class="grace-pager" style="text-align: center">
                 {{ #pageNewer }}
-                <a href="{{ &url }}"> &lt;&lt;&lt;上一页</a>
+                <a href="{{ &url }}"> &lt;上一页</a>
                 {{ /pageNewer }}
 
                  {{ #pageOlder }}
-                <a href="{{ &url }}">下一页&gt;&gt;&gt;</a>
+                <a href="{{ &url }}">下一页&gt;</a>
                 {{ /pageOlder }}
             </div>
         </div>
@@ -101,31 +101,20 @@
     });
     //百度统计代码请加在这里
 </script>
-<script type="text/javascript">
-   // $('#nav-news').addClass('grace-current');
+
+<script  type="text/javascript">
     $('.grace-media-list li:even').css({'background':'#F7F8F9'});
-</script>
-<script>
-    //分类选择后高亮
     //js 当前URL对当前栏目高亮突出显示
     var myNav = document.getElementById("grace-cate").getElementsByTagName("a");
-    console.log(myNav.length);
     for(var i=0;i<myNav.length;i++){
         var links = myNav[i].getAttribute("href");
         var myURL = decodeURI(document.location.href);
-
-        console.log("获取的当前分类:"+links);
-        console.log("获取的网址:"+ myURL);
-
         if(myURL.indexOf(links) != -1){
             myNav[i].className="grace-current";
         }
-
         if(myURL == "/"){
-
+            document.getElementById("all").className ="grace-current";
         }
-        document.getElementById("all").className ="grace-current";
-
     }
 </script>
 </body>
