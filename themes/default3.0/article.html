@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/koukouxiaoyao/cloudflare-workers-blog@master/themes/default3.0/files/font_674251_5aerw3hrm8jpds4i.css"/>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/koukouxiaoyao/cloudflare-workers-blog@master/themes/default3.0/files/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/koukouxiaoyao/cloudflare-workers-blog@master/themes/default3.0/files/grace.js"></script>
-   
+
 </head>
 <body>
 <div class="grace-header">
@@ -32,10 +32,9 @@
 </div>
 <div class="grace-header-line"></div>
 <div class="grace-slide-menu" id="slide-menu-account">
-    <a href="/account">账户中心</a>
-    <a href="/account/mytopics">我的话题</a>
-    <a href="/account/mycomments">我的评论</a>
-    <a href="/login/logoff">退出系统</a>
+    {{ #widgetMenuList }} 
+        <a href="{{ &url }}">{{ &title }}</a> 
+    {{ /widgetMenuList }} 
 </div>
 <div class="grace-main grace-margin-top">
     <div class="grace-r" style="float:left !important;">
@@ -87,18 +86,13 @@
             </aside>
             {{ &OPT.widgetOther }}
         </div>
-    </div>
-
-
-
-
+    </div> 
 </div>
 <div class="grace-footer-line"></div>
-<div class="grace-footer"> 
+<div class="grace-footer">
     phpGrace 轻快的实力派！&nbsp;&nbsp;
-    官方QQ群 : <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=65109c04a5d0fc6862e36083c8d611f2ec22257236ff1759b9b990c447aa2338">629104246</a>
     <br />
-    &copy; 2008 - 2018 www.phpGrace.com&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.beian.miit.gov.cn/" target="_blank">陕ICP备18004518号</a>
+    &copy; 2008 - 2021 {{ &OPT.copyRight }}&nbsp;&nbsp;&nbsp;&nbsp;<a href="/" target="_blank">陕ICP备88888888号</a>
 </div>
 <style type="text/css">
     table{border-left:1px solid #D9D9D9; border-top:1px solid #D9D9D9;}
