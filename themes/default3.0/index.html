@@ -39,7 +39,7 @@
         </div>-->
 
         <div class="grace-cate" id="grace-cate">
-            <a href="/" id="all">全部</a>
+            <a href="" id="all">全部</a>
             {{ #widgetCategoryList }}
             <a href="/category/{{&.}}" id="/category/{{&.}}">{{&.}}</a>
             {{ /widgetCategoryList }}
@@ -105,13 +105,14 @@
 
 <script  type="text/javascript">
     $('.grace-media-list li:even').css({'background':'#F7F8F9'});
+/*
     //js 当前URL对当前栏目高亮突出显示
     var myNav = document.getElementById("grace-cate").getElementsByTagName("a");
     for(var i=0;i<myNav.length;i++){
         var links = myNav[i].getAttribute("href");
         var myURL = decodeURI(document.location.href);
         if(myURL.indexOf("category") != -1){
-            /*不是首页*/
+            /!*不是首页*!/
             if(myURL.indexOf(links)!=-1){
                 myNav[i].className="grace-current";
             }
@@ -121,6 +122,21 @@
             document.getElementById("all").className = "grace-current";
         }
     }
+*/
+
+    $("#grace-cate li a:not(:first)").each(function(){
+        $this = $(this);
+        if($this[0].href==String(window.location)){
+               $this.parent().addClass("grace-current");
+           }
+         });
+    //当前URL对当前栏目高亮突出显示
+    $("#grace-cate li a").each(function(){
+        $this = $(this);
+        if($this[0].href==String(window.location)){
+            $this.parent().addClass("grace-current");
+        }
+    });
 </script>
 </body>
 </html>
